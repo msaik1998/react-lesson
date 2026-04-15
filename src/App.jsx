@@ -12,7 +12,7 @@ const App = () => {
       try {
         const response = await fetch("https://jsonplaceholder.typicode.com/posts")
         const json = await response.json()
-        setData(json.slice(0, 5)) 
+        setData(json) 
       } catch (error) {
         console.error("Error fetching data:", error)
       }
@@ -45,9 +45,10 @@ const App = () => {
 
           {data.map((item) => (
             <div key={item.id} style={{ marginBottom: 10 }}>
-              <p><strong>Title:</strong> {item.title}</p>
+              <h4>Title</h4>
+              <p>{item.title}</p>
+              <h4>Body</h4>
               <p>
-                <strong>Body:</strong>
                 {item.body}
               </p>
             </div>
